@@ -13,16 +13,18 @@ No build step. Native ES modules + vendored three.js. Any static file server wor
 ## Run
 
 ```bash
-# start the included zero-dependency server
-node scripts/serve.mjs            # -> http://127.0.0.1:8123
+# start the included zero-dependency server (default port 8123)
+node scripts/serve.mjs                 # -> http://localhost:8123
+node scripts/serve.mjs 8080            # or any free port you choose
+PORT=9000 node scripts/serve.mjs       # or via the PORT environment variable
 
 # or anything else that serves static files, e.g.
 #   npx serve .
-#   python -m http.server 8123
+#   python -m http.server <port>
 ```
 
-Open <http://127.0.0.1:8123/>. Needs WebGL2 (any modern browser). Headphones
-recommended (press **M** for the ambient drone).
+Open <http://localhost:8123/> (or your chosen port). Needs WebGL2 (any modern
+browser). Headphones recommended (press **M** for the ambient drone).
 
 ## Physics
 
@@ -100,8 +102,9 @@ Headless acceptance test (Chrome/Edge, CDP, no external deps):
 
 ```bash
 node scripts/screenshot.mjs \
-  --url "http://127.0.0.1:8123/?quality=standard&steps=200&res=0.5&movie=0&hud=0&cam=1" \
+  --url "http://localhost:<port>/?quality=standard&steps=200&res=0.5&movie=0&hud=0&cam=1" \
   --out test/shot-cam1.png --w 960 --h 540
+# <port> = the port your server runs on (default 8123)
 # exit 0 = rendered + zero console errors; see test/ for captured images
 ```
 

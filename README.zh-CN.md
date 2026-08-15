@@ -9,15 +9,17 @@
 ## 运行
 
 ```bash
-# 启动内置零依赖服务器
-node scripts/serve.mjs            # -> http://127.0.0.1:8123
+# 启动内置零依赖服务器（默认端口 8123）
+node scripts/serve.mjs                 # -> http://localhost:8123
+node scripts/serve.mjs 8080            # 或任意空闲端口
+PORT=9000 node scripts/serve.mjs       # 或通过 PORT 环境变量指定
 
 # 或任意静态文件服务，例如
 #   npx serve .
-#   python -m http.server 8123
+#   python -m http.server <port>
 ```
 
-打开 <http://127.0.0.1:8123/>。需要 WebGL2（任意现代浏览器）。建议佩戴耳机（按 **M** 键开启环境低鸣）。
+打开 <http://localhost:8123/>（或你指定的端口）。需要 WebGL2（任意现代浏览器）。建议佩戴耳机（按 **M** 键开启环境低鸣）。
 
 ## 物理原理
 
@@ -71,8 +73,9 @@ node scripts/serve.mjs            # -> http://127.0.0.1:8123
 
 ```bash
 node scripts/screenshot.mjs \
-  --url "http://127.0.0.1:8123/?quality=standard&steps=200&res=0.5&movie=0&hud=0&cam=1" \
+  --url "http://localhost:<port>/?quality=standard&steps=200&res=0.5&movie=0&hud=0&cam=1" \
   --out test/shot-cam1.png --w 960 --h 540
+# <port> = 你的服务器运行端口（默认 8123）
 # 退出码 0 = 已渲染且零控制台错误；截图见 test/
 ```
 

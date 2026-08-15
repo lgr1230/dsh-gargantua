@@ -2,6 +2,9 @@
 
 [中文说明](./README.zh-CN.md)
 
+**Live demo:** <https://lgr1230.github.io/dsh-gargantua/> — run it directly in
+your browser (WebGL2 required).
+
 A real-time, full-screen gravitational raytracer. Every pixel integrates true
 **Schwarzschild null geodesics** in a fragment shader — the event horizon, the
 photon ring, the Einstein-lensed disk images and the multi-crossing accretion

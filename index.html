@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>GARGANTUA — Schwarzschild Black Hole Raytracer</title>
+  <meta name="description" content="Real-time Schwarzschild null-geodesic raytracer: event horizon, photon ring, volumetric accretion disk, gravitational lensing, Doppler beaming and redshift.">
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="./css/style.css">
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "./vendor/three.module.js",
+      "three/addons/": "./vendor/addons/"
+    }
+  }
+  </script>
+</head>
+<body>
+  <canvas id="gl"></canvas>
+  <div id="hud"></div>
+
+  <div id="overlay-loading" class="overlay">
+    <div class="loading-text">GARGANTUA</div>
+    <div class="loading-sub">compiling geodesics…</div>
+  </div>
+
+  <div id="overlay-error" class="overlay hidden"></div>
+
+  <noscript>
+    <div class="overlay"><div class="loading-text">JavaScript is required for this WebGL raytracer.</div></div>
+  </noscript>
+
+  <script type="module" src="./js/main.js"></script>
+</body>
+</html>
